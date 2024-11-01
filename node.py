@@ -10,7 +10,7 @@ TURQUOISE = (64, 224, 208)
 
 
 class Node:
-    def __init__(self, row, col, width, total_rows):
+    def __init__(self, row, col, width):
         self.row = row
         self.col = col
         self.x = row * width
@@ -18,7 +18,6 @@ class Node:
         self.color = WHITE
         self.neighbours = []
         self.width = width
-        self.total_rows = total_rows
 
     def get_pos(self):
         return self.row, self.col
@@ -55,9 +54,6 @@ class Node:
 
     def construct_path(self):
         self.color = PURPLE
-
-    def get_neighbours(self):
-        pass
 
     def __lt__(self, other):
         return False

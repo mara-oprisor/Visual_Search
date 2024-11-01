@@ -20,7 +20,7 @@ class Grid:
         for i in range(self.rows):
             grid.append([])
             for j in range(self.rows):
-                node = Node(i, j, self.node_width, self.rows)
+                node = Node(i, j, self.node_width)
                 grid[i].append(node)
 
         return grid
@@ -47,3 +47,19 @@ class Grid:
         col = x // self.node_width
 
         return row, col
+
+    def get_neighbours(self, node):
+        neighbours = []
+        if node.row < self.rows - 1 and not self.grid[node.row + 1][node.col].is_obstacle():
+            neighbours.append(self.grid[node.row + 1][node.col])
+
+        if node.row > 0 and not self.grid[node.row - 1][node.col].is_obstacle():
+            neighbours.append(self.grid[node.row - 1][node.col])
+
+        if node.col < self.rows - 1 and not self.grid[node.row][node.col + 1].is_obstacle():
+            neighbours.append(self.grid[node.row][node.col + 1])
+
+        if node.col > 0 and not self.grid[node.row][node.col - 1].is_obstacle():
+            neighbours.append(self.grid[node.row][node.col - 1])
+
+        node.neighbours = neighbours
