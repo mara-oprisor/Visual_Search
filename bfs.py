@@ -29,6 +29,10 @@ def bfs(start, end, draw):
                 if neighbour != end:
                     neighbour.make_available()
 
+        draw()
+
+    return False
+
 
 def reconstruct_path(path_nodes, current_node, draw):
     while current_node in path_nodes:
