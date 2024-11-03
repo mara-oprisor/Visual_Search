@@ -1,7 +1,7 @@
 # Visual_Search
 
 ## Overview
-This is a project for theArtificial Intelligence laboratory.
+This is a project for the Artificial Intelligence laboratory.  
 
 The project provides an interactive visualization of various search algorithms, including A*, BFS, DFS, UCS, and Dijkstra's algorithm. Users can manipulate a grid to set start and end points, place obstacles, and visualize how different algorithms explore the grid and find paths.
 
@@ -9,6 +9,7 @@ The project provides an interactive visualization of various search algorithms, 
 - **Interactive Grid**: Click to set start and end points, place obstacles, and reset the grid.
 - **Algorithm Visualization**: Visualize the pathfinding process of multiple algorithms in real-time.
 - **Performance Metrics**: Displays the number of nodes from the path found by each algorithm.
+- **Theme Selection**: Cycle through different color themes to customize the grid's appearance.
 
 ## Usage
 - **Setting Start and End Points**: Click on a cell to set it as the start point (orange) and another cell for the end point (turquoise).
@@ -20,10 +21,12 @@ The project provides an interactive visualization of various search algorithms, 
   - 3 for DFS algorithm
   - 4 for UCS algorithm
   - 5 for Dijkstra's algorithm
+- **Changing Themes**: Press `T` to cycle through different color themes (default, dark, light) to customize the grid's appearance.
 
-  ## Controls
+## Controls
 - **Left Mouse Button**: Set start/end points or place obstacles.
 - **Right Mouse Button**: Reset the selected node.
 - **Keyboard Shortcuts**:
     - 0: Reset the grid.
     - 1-5: Run the corresponding algorithm.
+    - T: Cycle through different themes.
