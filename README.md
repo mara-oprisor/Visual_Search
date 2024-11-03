@@ -21,7 +21,7 @@ The project provides an interactive visualization of various search algorithms, 
   - 3 for DFS algorithm
   - 4 for UCS algorithm
   - 5 for Dijkstra's algorithm
-- **Changing Themes**: Press `T` to cycle through different color themes (default, dark, light) to customize the grid's appearance.
+- **Changing Themes**: Press `T` to cycle through different color themes (default, dark, light) to customize the grid's appearance. It can be done only when no node is selected on the board.
 
 ## Controls
 - **Left Mouse Button**: Set start/end points or place obstacles.
