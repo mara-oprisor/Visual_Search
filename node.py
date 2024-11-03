@@ -1,21 +1,11 @@
-RED = (255, 0, 0)
-GREEN = (0, 255, 0)
-BLUE = (0, 0, 255)
-YELLOW = (255, 255, 0)
-WHITE = (255, 255, 255)
-BLACK = (0, 0, 0)
-PURPLE = (128, 0, 128)
-ORANGE = (255, 165, 0)
-TURQUOISE = (64, 224, 208)
-
-
 class Node:
-    def __init__(self, row, col, width):
+    def __init__(self, row, col, width, theme):
         self.row = row
         self.col = col
         self.x = row * width
         self.y = col * width
-        self.color = WHITE
+        self.theme = theme
+        self.color = self.theme["default"]
         self.neighbours = []
         self.width = width
 
@@ -23,37 +13,37 @@ class Node:
         return self.row, self.col
 
     def is_visited(self):
-        return self.color == RED
+        return self.color == self.theme["visited"]
 
     def is_obstacle(self):
-        return self.color == BLACK
+        return self.color == self.theme["obstacle"]
 
     def is_start(self):
-        return self.color == ORANGE
+        return self.color == self.theme["start"]
 
     def is_end(self):
-        return self.color == TURQUOISE
+        return self.color == self.theme["end"]
 
     def reset(self, theme):
         self.color = theme["default"]
 
     def visit_node(self):
-        self.color = RED
+        self.color = self.theme["visited"]
 
     def make_available(self):
-        self.color = GREEN
+        self.color = self.theme["available"]
 
     def make_obstacle(self):
-        self.color = BLACK
+        self.color = self.theme["obstacle"]
 
     def make_start(self):
-        self.color = ORANGE
+        self.color = self.theme["start"]
 
     def make_end(self):
-        self.color = TURQUOISE
+        self.color = self.theme["end"]
 
     def construct_path(self):
-        self.color = PURPLE
+        self.color = self.theme["path"]
 
     def __lt__(self, other):
         return False

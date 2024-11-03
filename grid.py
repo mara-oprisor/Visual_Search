@@ -5,7 +5,6 @@ import colors
 ROWS = 50
 WIDTH = 750
 GREY = (64, 224, 208)
-WHITE = (255, 255, 255)
 
 
 class Grid:
@@ -13,8 +12,8 @@ class Grid:
         self.rows = ROWS
         self.width = WIDTH
         self.node_width = self.width // self.rows
+        self.current_theme = colors.THEMES["default"]
         self.grid = self.make_grid()
-        self.current_theme = colors.THEMES['default']
 
     def make_grid(self):
         grid = []
@@ -22,7 +21,7 @@ class Grid:
         for i in range(self.rows):
             grid.append([])
             for j in range(self.rows):
-                node = Node(i, j, self.node_width)
+                node = Node(i, j, self.node_width, self.current_theme)
                 grid[i].append(node)
 
         return grid
@@ -39,7 +38,7 @@ class Grid:
                 pygame.draw.line(window, GREY, (j * self.node_width, 0), (j * self.node_width, self.width))
 
     def draw(self, window):
-        window.fill(WHITE)
+        window.fill(self.current_theme["default"])
 
         for row in self.grid:
             for node in row:

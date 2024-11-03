@@ -13,7 +13,6 @@ HEIGHT = 750
 window = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Visual Search Algorithms")
 grid = Grid()
-current_algorithm = "None"
 
 if __name__ == "__main__":
     start = None
@@ -49,7 +48,7 @@ if __name__ == "__main__":
                 mouse_pos = pygame.mouse.get_pos()
                 row, col = grid.get_clicked_position(mouse_pos)
                 node = grid.grid[row][col]
-                node.reset()
+                node.reset(grid.current_theme)
 
                 if node == start:
                     start = None
@@ -119,11 +118,11 @@ if __name__ == "__main__":
                     started = False
 
                 elif event.key == pygame.K_t:
-                    if grid.current_theme == colors.THEMES['default']:
-                        grid.apply_theme('dark')
-                    elif grid.current_theme == colors.THEMES['dark']:
-                        grid.apply_theme('light')
+                    if grid.current_theme == colors.THEMES["default"]:
+                        grid.apply_theme("dark")
+                    elif grid.current_theme == colors.THEMES["dark"]:
+                        grid.apply_theme("light")
                     else:
-                        grid.apply_theme('default')
+                        grid.apply_theme("default")
 
     pygame.quit()
