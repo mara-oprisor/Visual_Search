@@ -34,8 +34,8 @@ class Node:
     def is_end(self):
         return self.color == TURQUOISE
 
-    def reset(self):
-        self.color = WHITE
+    def reset(self, theme):
+        self.color = theme["default"]
 
     def visit_node(self):
         self.color = RED

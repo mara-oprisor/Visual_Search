@@ -5,6 +5,7 @@ from dfs import dfs
 from bfs import bfs
 from ucs import ucs
 from dijkstra import dijkstra
+import colors
 
 WIDTH = 750
 HEIGHT = 750
@@ -116,5 +117,13 @@ if __name__ == "__main__":
                     if not dijkstra(grid, start, end, lambda: grid.draw(window)):
                         print("No path found using Dijkstra's algorithm")
                     started = False
+
+                elif event.key == pygame.K_t:
+                    if grid.current_theme == colors.THEMES['default']:
+                        grid.apply_theme('dark')
+                    elif grid.current_theme == colors.THEMES['dark']:
+                        grid.apply_theme('light')
+                    else:
+                        grid.apply_theme('default')
 
     pygame.quit()
