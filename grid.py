@@ -2,7 +2,7 @@ from node import Node
 import pygame
 
 ROWS = 50
-WIDTH = 800
+WIDTH = 750
 GREY = (64, 224, 208)
 WHITE = (255, 255, 255)
 
@@ -24,6 +24,11 @@ class Grid:
                 grid[i].append(node)
 
         return grid
+
+    def reset_grid(self):
+        for row in self.grid:
+            for node in row:
+                node.reset()
 
     def draw_grid_lines(self, window):
         for i in range(self.rows):
@@ -53,13 +58,13 @@ class Grid:
         if node.row < self.rows - 1 and not self.grid[node.row + 1][node.col].is_obstacle():
             neighbours.append(self.grid[node.row + 1][node.col])
 
+        if node.col > 0 and not self.grid[node.row][node.col - 1].is_obstacle():
+            neighbours.append(self.grid[node.row][node.col - 1])
+
         if node.row > 0 and not self.grid[node.row - 1][node.col].is_obstacle():
             neighbours.append(self.grid[node.row - 1][node.col])
 
         if node.col < self.rows - 1 and not self.grid[node.row][node.col + 1].is_obstacle():
             neighbours.append(self.grid[node.row][node.col + 1])
-
-        if node.col > 0 and not self.grid[node.row][node.col - 1].is_obstacle():
-            neighbours.append(self.grid[node.row][node.col - 1])
 
         node.neighbours = neighbours

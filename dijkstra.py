@@ -15,12 +15,7 @@ def dijkstra(grid, start, end, draw):
     while not nodes_to_explore.empty():
         current_node = nodes_to_explore.get()[2]
 
-        if current_node == end:
-            reconstruct_path(path_nodes, end, draw)
-            end.make_end()
-            return True
-
-        if current_node != start:
+        if current_node != start and current_node != end:
             current_node.visit_node()
 
         for neighbor in current_node.neighbours:
@@ -35,14 +30,30 @@ def dijkstra(grid, start, end, draw):
                 nodes_to_explore.put((distance[neighbor], node_index, neighbor))
                 visited_nodes.add(neighbor)
 
-                if neighbor != end:
+                if neighbor != end and neighbor != start:
                     neighbor.make_available()
 
         draw()
+    if end not in path_nodes:
+        return False
+
+    reconstruct_path(path_nodes, end, draw)
+    end.make_end()
+    return True
 
 
 def reconstruct_path(path_nodes, current_node, draw):
+    print("Algorithm: Dijkstra\nPath\nStart:")
+    list_of_nodes = []
     while current_node in path_nodes:
         current_node = path_nodes[current_node]
         current_node.construct_path()
+        list_of_nodes.append((current_node.row, current_node.col))
         draw()
+
+    list_of_nodes.reverse()
+    for node in list_of_nodes:
+        print(node)
+
+    print("Goal")
+    print(f"Path length: {len(list_of_nodes)} steps\n\n")

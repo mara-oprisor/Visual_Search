@@ -23,9 +23,6 @@ def a_star(grid, start, end, draw):
     while not nodes_to_explore.empty():
         current_node = nodes_to_explore.get()[2]
 
-        if current_node not in visited_nodes:
-            visited_nodes.add(current_node)
-
         if current_node == end:
             reconstruct_path(path_nodes, end, draw)
             end.make_end()
@@ -47,7 +44,7 @@ def a_star(grid, start, end, draw):
                     nodes_to_explore.put((estimated_cost[neighbor], node_index, neighbor))
                     visited_nodes.add(neighbor)
 
-                    if neighbor != end:
+                    if neighbor != end and neighbor != start:
                         neighbor.make_available()
 
         draw()
@@ -55,8 +52,18 @@ def a_star(grid, start, end, draw):
     return False
 
 
-def reconstruct_path(came_from, current_node, draw):
-    while current_node in came_from:
-        current_node = came_from[current_node]
+def reconstruct_path(path_nodes, current_node, draw):
+    print("Algorithm: A*\nPath\nStart:")
+    list_of_nodes = []
+    while current_node in path_nodes:
+        current_node = path_nodes[current_node]
         current_node.construct_path()
+        list_of_nodes.append((current_node.row, current_node.col))
         draw()
+
+    list_of_nodes.reverse()
+    for node in list_of_nodes:
+        print(node)
+
+    print("Goal")
+    print(f"Path length: {len(list_of_nodes)} steps\n\n")

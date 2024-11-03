@@ -26,7 +26,7 @@ def bfs(start, end, draw):
                 nodes_to_explore.put(neighbour)
                 path_nodes[neighbour] = current_node
 
-                if neighbour != end:
+                if neighbour != end and neighbour != start:
                     neighbour.make_available()
 
         draw()
@@ -35,7 +35,17 @@ def bfs(start, end, draw):
 
 
 def reconstruct_path(path_nodes, current_node, draw):
+    print("Algorithm: Breath First Search\nPath\nStart:")
+    list_of_nodes = []
     while current_node in path_nodes:
         current_node = path_nodes[current_node]
         current_node.construct_path()
+        list_of_nodes.append((current_node.row, current_node.col))
         draw()
+
+    list_of_nodes.reverse()
+    for node in list_of_nodes:
+        print(node)
+
+    print("Goal")
+    print(f"Path length: {len(list_of_nodes)} steps\n\n")

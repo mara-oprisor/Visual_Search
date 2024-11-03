@@ -35,7 +35,17 @@ def dfs(start, end, draw):
 
 
 def reconstruct_path(path_nodes, current_node, draw):
+    print("Algorithm: Depth First Search\nPath\nStart:")
+    list_of_nodes = []
     while current_node in path_nodes:
         current_node = path_nodes[current_node]
         current_node.construct_path()
+        list_of_nodes.append((current_node.row, current_node.col))
         draw()
+
+    list_of_nodes.reverse()
+    for node in list_of_nodes:
+        print(node)
+
+    print("Goal")
+    print(f"Path length: {len(list_of_nodes)} steps\n\n")
