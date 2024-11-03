@@ -1,7 +1,7 @@
 # Visual_Search
 
 ## Overview
-This is a project for the Artificial Inteligence laboratory.
+This is a project for theArtificial Intelligence laboratory.
 
 The project provides an interactive visualization of various search algorithms, including A*, BFS, DFS, UCS, and Dijkstra's algorithm. Users can manipulate a grid to set start and end points, place obstacles, and visualize how different algorithms explore the grid and find paths.
 
