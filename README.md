@@ -14,11 +14,11 @@ The project provides an interactive visualization of various search algorithms, 
 - **Placing Obstacles**: Click on cells to place obstacles (black) to modify the grid.
 - **Resetting the Grid**: Press 0 to reset the grid and clear all settings.
 - **Running Algorithms**: Use the following keys to run different algorithms:
-  1 for A* algorithm
-  2 for BFS algorithm
-  3 for DFS algorithm
-  4 for UCS algorithm
-  5 for Dijkstra's algorithm
+  - 1 for A* algorithm
+  - 2 for BFS algorithm
+  - 3 for DFS algorithm
+  - 4 for UCS algorithm
+  - 5 for Dijkstra's algorithm
 
   ## Controls
 - **Left Mouse Button**: Set start/end points or place obstacles.
